@@ -12,6 +12,8 @@ LINE = 'I asked my agent why the scarecrow won an award. It said: because he was
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 200:
+        raise ValueError(f"entry must be 1-200 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
